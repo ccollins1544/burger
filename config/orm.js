@@ -6,6 +6,11 @@ var connection = require("./connection.js");
 var PrettyTable = require("cli-table2");
 var colors = require("colors");
 
+/**
+ * orm 
+ * Connects to mysql database and has all the CRUD functions (Create, Read, Update, Delete)
+ * for manipulating the database.
+ */
 var orm = {
   //===========================[ CREATE ]===========================================
   insertOne: function (table, cols, vals, cb = this.loopObject) {
@@ -27,9 +32,7 @@ var orm = {
 
   //===========================[ READ ]=============================================
   query: function (sql) {
-    if (sql === undefined) {
-      return;
-    } // GTFO
+    if (sql === undefined) return; // GTFO
 
     connection.query(sql, function (error, results, fields) {
       if (error) throw error;
@@ -70,9 +73,7 @@ var orm = {
 
   // Query multiple records
   querySelect: function (sql, callback = this.loopArrayObject) {
-    if (sql === undefined) {
-      return;
-    } // GTFO
+    if (sql === undefined) return; // GTFO
     var results_arr = [];
 
     connection.query(sql, function (error, results) {
@@ -146,6 +147,7 @@ var orm = {
   //===========================[ DELETE ]===========================================
   delete: function(table, whereKeyVal, cb = this.loopObject){
     if(typeof(whereKeyVal) != 'object' ) return; // GTFO
+
     var queryString = "DELETE FROM " + table + " WHERE ?"
     var query = this.connection.query(queryString, whereKeyVal, function(error, results){
       if(error) throw error;

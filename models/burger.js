@@ -4,6 +4,10 @@
 /* ===============[ Libraries ]========================*/
 var orm = require("../config/orm.js");
 
+/**
+ * burger
+ * model that specifically uses the burger table with the ORM. 
+ */
 var burger = {
   all: function(cb){
     orm.selectAll("burgers", function(res){

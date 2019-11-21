@@ -5,8 +5,10 @@
 var express = require("express");
 var router = express.Router();
 
+// burger model use by the routes
 var burger = require("../models/burger.js");
 
+/* ===============[ Routes ]===========================*/
 // Get All Burgers
 router.get("/", function(request, response){
   burger.all(function(data){
