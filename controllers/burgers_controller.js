@@ -10,7 +10,7 @@ var burger = require("../models/burger.js");
 
 /* ===============[ Routes ]===========================*/
 // Get All Burgers
-router.get("/", function(request, response){
+router.get("*", function(request, response){
   burger.all(function(data){
     var handlebars_object = { burgers: data };
     response.render("index", handlebars_object);
