@@ -1,19 +1,36 @@
-<h1>Burgers</h1>
+<div class="row">
 
-<h2>Not Devoured!</h2>
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block eaten=true}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Devoured</h2>
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
+  <div class="col-6">
+    <h2>Not Devoured</h2>
+    <ul class="list-group">
+      {{#each burgers}}
+      {{#unless devoured}}
       {{> burgers/burger-block eaten=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="col-6">
+    <h2>Devoured</h2>
+    <ul class="list-group">
+      {{#each burgers}}
+      {{#if devoured}}
+      {{> burgers/burger-block eaten=true}}
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+
+</div>
+
+<div class="row">
+  <form class="col-6 mx-auto" id="add-burger-form">
+    <label for="burger_name">
+      <h3>Enter New Burger</h3>
+    </label>
+    <input type="text" class="form-control" id="burger_name" name="burger_name" placeholder="Burger Name">
+    <button type="submit" class="btn btn-primary">Submit <i class="fas fa-hamburger"></i></button>
+    <small class="form-text text-muted">Enter a burger you want to eat and click the "Submit" button.</small>
+  </form>
+</div>

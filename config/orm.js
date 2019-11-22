@@ -14,11 +14,20 @@ var colors = require("colors");
 var orm = {
   //===========================[ CREATE ]===========================================
   insertOne: function (table, cols, vals, cb = this.loopObject) {
-    return this.create(table, cols, vals, cb);
+    var queryString = "INSERT INTO " + table + " (";
+    queryString += cols.toString();
+    queryString += ") VALUES (";
+    queryString += this.printQuestionMarks(vals.length);
+    queryString += ");";
+
+    connection.query(queryString, vals, function (err, result) {
+      if (err) throw err;
+      cb(result);
+    });
   },
 
   create: function (table, cols, vals, cb = this.loopObject) {
-    var queryString = "INSERT INTO " + tableInput + " (";
+    var queryString = "INSERT INTO " + table + " (";
     queryString += cols.toString();
     queryString += ") VALUES (";
     queryString += this.printQuestionMarks(vals.length);
@@ -131,7 +140,13 @@ var orm = {
 
   //===========================[ UPDATE ]===========================================
   updateOne: function (table, fieldsKeyVal, whereKeyVal, cb = this.loopObject) {
-    return this.updateOne(table, fieldsKeyVal, whereKeyVal, cb);
+    var queryString = "UPDATE " + table + " SET ? WHERE ?";
+    var query = connection.query(queryString, [fieldsKeyVal, whereKeyVal], function (err, result) {
+      if (err) throw err;
+      cb(result);
+    });
+
+    console.log("\r\n\r\n" + query.sql.yellow);
   },
 
   updateFields: function (table, fieldsKeyVal, whereKeyVal, cb = this.loopObject) {
