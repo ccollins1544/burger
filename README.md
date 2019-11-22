@@ -9,7 +9,7 @@ Enter a burger you want to eat, or click "devour" button on a burger already in 
 ### Useful Links
 * Live Site: [https://stark-bastion-06519.herokuapp.com/](https://stark-bastion-06519.herokuapp.com/)
 
-### Programs and LIbraries Used
+### Programs and Libraries Used
 * [Git for Windows](https://gitforwindows.org/)
 * [NodeJS](https://nodejs.org/en/download/)
 * NPM Libraries: mysql, express, express-handlebars, dotenv, cli-table2
