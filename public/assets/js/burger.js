@@ -3,17 +3,14 @@
  * @package burger
  *
  * ===============[ TABLE OF CONTENTS ]===============
- * 0. GLOBALS
- * 
  * 1. Functions
  *   1.1 AlertMessage() 
  * 
  * 2. Document Ready 
+ *   2.1 toggle devoured button
+ *   2.2 Add Burger Form
  * 
  *****************************************************/
-/* ===============[ 0. GLOBALS ]=====================*/
-
-
 /* ===============[ 1. Functions ]===================*/
 /**
  * 1.1 AlertMessage()
@@ -64,7 +61,7 @@ function AlertMessage(message="", addThisClass="info", appendAfterElement){
 /* ===============[ 2. Document Ready ]==============*/ 
 $(function(){
   
-  // toggle devoured button
+  // 2.1 toggle devoured button
   $(".change-devoured").on("click", function(event){
     var id = $(this).data("id");
     var eaten = $(this).data("eaten");
@@ -80,6 +77,7 @@ $(function(){
     });
   });
 
+  // 2.2 Add Burger Form
   $("#add-burger-form").on("submit", function(event){
     event.preventDefault();
     var isValid = true;
