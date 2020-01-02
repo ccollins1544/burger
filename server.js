@@ -17,15 +17,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static content for the app from the "public" directory.
-app.use(express.static('public'));
+app.use(express.static(path.resolve(__dirname,'public')));
 
 // Set Handlebars
 var express_handlebars = require("express-handlebars");
-app.engine("handlebars", express_handlebars({ defaultLayout: "main" }));
+app.engine("handlebars", express_handlebars({ defaultLayout: "main"}));
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "handlebars");
 
 // Router
-var routes = require("./controllers/burgers_controller.js");
+var routes = require(path.resolve(__dirname, "./controllers/burgers_controller.js"));
 app.use(routes);
 
 app.listen(PORT, function(){

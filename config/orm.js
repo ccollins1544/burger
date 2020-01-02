@@ -2,7 +2,8 @@
  * @subpackage orm 
  * @package burger
 /* ===============[ Libraries ]========================*/
-var connection = require("./connection.js");
+const path = require('path');
+var connection = require(path.resolve(__dirname, "./connection.js"));
 var PrettyTable = require("cli-table2");
 var colors = require("colors");
 

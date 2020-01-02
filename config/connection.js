@@ -2,7 +2,8 @@
  * @subpackage connection 
  * @package burger
 /* ===============[ Libraries ]========================*/
-require("dotenv").config();
+const path = require('path')
+require("dotenv").config({path: path.resolve(__dirname, '../.env')});
 var dbconf = require("./dbconf.js");
 var mysql = require("mysql");
 

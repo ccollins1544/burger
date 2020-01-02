@@ -2,11 +2,12 @@
  * @subpackage controllers/burgers_controller 
  * @package burger
 /* ===============[ Libraries ]========================*/
+const path = require('path');
 var express = require("express");
 var router = express.Router();
 
 // burger model use by the routes
-var burger = require("../models/burger.js");
+var burger = require(path.resolve(__dirname, "../models/burger.js"));
 
 /* ===============[ Routes ]===========================*/
 // Get All Burgers

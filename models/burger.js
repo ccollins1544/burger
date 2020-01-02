@@ -2,7 +2,8 @@
  * @subpackage model/burger 
  * @package burger
 /* ===============[ Libraries ]========================*/
-var orm = require("../config/orm.js");
+const path = require('path');
+var orm = require(path.resolve(__dirname, "../config/orm.js"));
 
 /**
  * burger
