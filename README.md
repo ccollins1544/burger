@@ -12,7 +12,7 @@ Enter a burger you want to eat, or click "devour" button on a burger already in 
 ### Programs and Libraries Used
 * [Git for Windows](https://gitforwindows.org/)
 * [NodeJS](https://nodejs.org/en/download/)
-* NPM Libraries: mysql, express, express-handlebars, dotenv, cli-table2
+* NPM Libraries: mysql2, express, express-handlebars, dotenv
 
 ### Credit
 * [Christopher Collins](https://ccollins.io) *Lead Developer*

@@ -4,7 +4,7 @@
 /* ===============[ Libraries ]========================*/
 const path = require('path');
 var connection = require(path.resolve(__dirname, "./connection.js"));
-var PrettyTable = require("cli-table2");
+// var PrettyTable = require("cli-table2");
 var colors = require("colors");
 
 /**
@@ -69,15 +69,18 @@ var orm = {
         rows.push(cells);
       }
 
-      var Table = new PrettyTable({
-        head: top_row,
-      });
+      // var Table = new PrettyTable({
+      //   head: top_row,
+      // });
+
+      var Table = [];
 
       for (var r = 0; r < rows.length; r++) {
         Table.push(rows[r]);
       }
 
-      console.log(Table.toString());
+      // console.log(Table.toString());
+      console.log(Table);
     });
   },
 
@@ -161,12 +164,12 @@ var orm = {
   },
 
   //===========================[ DELETE ]===========================================
-  delete: function(table, whereKeyVal, cb = this.loopObject){
-    if(typeof(whereKeyVal) != 'object' ) return; // GTFO
+  delete: function (table, whereKeyVal, cb = this.loopObject) {
+    if (typeof (whereKeyVal) != 'object') return; // GTFO
 
     var queryString = "DELETE FROM " + table + " WHERE ?"
-    var query = this.connection.query(queryString, whereKeyVal, function(error, results){
-      if(error) throw error;
+    var query = this.connection.query(queryString, whereKeyVal, function (error, results) {
+      if (error) throw error;
       cb(results);
     });
 
@@ -202,15 +205,18 @@ var orm = {
       rows.push(cells);
     }
 
-    var Table = new PrettyTable({
-      head: top_row,
-    });
+    // var Table = new PrettyTable({
+    //   head: top_row,
+    // });
+
+    var Table = [];
 
     for (var r = 0; r < rows.length; r++) {
       Table.push(rows[r]);
     }
 
-    console.log(Table.toString());
+    // console.log(Table.toString());
+    console.log(Table);
   },
 
   // Loop through an object
@@ -231,15 +237,18 @@ var orm = {
 
     rows.push(cells);
 
-    var Table = new PrettyTable({
-      head: top_row,
-    });
+    // var Table = new PrettyTable({
+    //   head: top_row,
+    // });
+
+    var Table = [];
 
     for (var r = 0; r < rows.length; r++) {
       Table.push(rows[r]);
     }
 
-    console.log(Table.toString());
+    // console.log(Table.toString());
+    console.log(Table);
     return;
   },
 
